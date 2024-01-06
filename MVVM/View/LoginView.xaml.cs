@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,8 +57,24 @@ namespace MVVM.View
         public LoginView()
         {
             InitializeComponent();
+       
+            string? basePath = AppDomain.CurrentDomain.BaseDirectory; // O usa el directorio base que prefieras
+
+            // Se asume que siempre hay un archivo de proyecto en algún lugar en la estructura de carpetas hacia arriba.
+            while (!Directory.GetFiles(basePath, "*.csproj").Any())
+            {
+                basePath = Directory.GetParent(basePath)?.FullName;
+
+                // Si llegamos al directorio raíz y no encontramos un archivo de proyecto, salimos del bucle
+                if (basePath == null) break;
+            }
+
+            // Combina el directorio base con la ruta relativa del archivo
+            string relativePath = "\\Sounds\\kickfx.wav";
+            string absolutePath = (basePath+relativePath);
+
             mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri("C:\\Users\\PC\\Desktop\\Codigo\\WPF_INTERFACES_GRAFICAS\\MVVM\\Sounds\\kickfx.wav"));
+            mediaPlayer.Open(new Uri(absolutePath));
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

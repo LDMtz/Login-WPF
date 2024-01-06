@@ -13,6 +13,7 @@
     <None Remove="Images\profile.png" />
     <None Remove="Images\rzr2.jpeg" />
     <None Remove="Images\user.png" />
+    <None Remove="Sounds\kickfx.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
   <ItemGroup>
     <Resource Include="Images\LogoLion.png" />
     <Resource Include="Images\user.png" />
+    <Resource Include="Sounds\kickfx.wav" />
   </ItemGroup>
 
 </Project>
