@@ -17,8 +17,17 @@
         <ViewModel:MainViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ViewModel:HomeViewModel}">
+            <local:HomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModel:CustomerViewModel}">
+            <local:CustomerView/>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Border CornerRadius="10"
-            
                 BorderThickness="2"
                 >
         <Border.BorderBrush >
@@ -54,7 +63,7 @@
                                 Height="35"
                                 Margin="15,25,0,40">
 
-                        <Image Source="C:\Users\PC\Desktop\Codigo\WPF_INTERFACES_GRAFICAS\MVVM\Images\LogoLion.png" Height="30"/>
+                        <Image Source="../Images/LogoLion.png" Height="30"/>
                         <TextBlock Text="LM CODE"
                                    Foreground="{StaticResource titleColor2}"
                                    FontSize="20"
@@ -66,14 +75,17 @@
 
                     <!-- Menu Buttons -->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource menuButtonColor1}">
+                                 Tag="{StaticResource menuButtonColor1}"
+                                 IsChecked="True"
+                                 Command="{Binding ShowHomeViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Inicio" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource menuButtonColor2}">
+                                 Tag="{StaticResource menuButtonColor2}"
+                                 Command="{Binding ShowCustomerViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Usuarios" Style="{StaticResource menuButtonText}"/>
@@ -143,7 +155,7 @@
                         <!-- Control bar -->
                         <RowDefinition Height="25"/>
                         <!-- Header / Caption -->
-                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="45"/>
                         <!-- Content section / Childs View-->
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -157,9 +169,114 @@
                                 Margin="0,0,5,0"
                                 MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
                                 MouseEnter="pnlControlBar_MouseEnter">
-                        <Button>asa</Button>
+                        
+                        <Button x:Name="btnClose"
+                                Style="{StaticResource controlButton }"
+                                Tag="{StaticResource color6}"
+                                Click="btnClose_Click">
+                            <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        <Button x:Name="btnMaximize"
+                                Style="{StaticResource controlButton }"
+                                Tag="{StaticResource color4}"
+                                Click="btnMaximize_Click">
+                            <fa:IconImage Icon="Square"  Width="11" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+                        
+                        <Button x:Name="btnMinimize"
+                                Style="{StaticResource controlButton }"
+                                Tag="{StaticResource color7}"
+                                Click="btnMinimize_Click">
+                            <fa:IconImage Icon="WindowMinimize" Width="11" Style="{StaticResource controlButtonIcon}"/>
+                        </Button>
+
+                        
+                        
                     </StackPanel>
-                    
+
+                    <!-- Header / Caption -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Caption -->
+                        <StackPanel Grid.Column="0"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center">
+
+                            <fa:IconImage Icon="{Binding Icon}"
+                                      Height="20"
+                                      Width="20"
+                                      Foreground="{StaticResource titleColor2}"
+                                      Margin="35,0,10,0"/>
+
+                            <TextBlock Text="{Binding Caption}"
+                                   Foreground="{StaticResource titleColor2}"
+                                   FontSize="16"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                        
+                        <!-- User option -->
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+
+                            <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color1}" Cursor="Hand">
+                                <fa:IconImage Icon="AngleDown" 
+                                              Height="12" Width="12"
+                                              Style="{StaticResource iconButtonIcon}"/>
+                            </Button>
+
+                            <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                                       Foreground="{StaticResource titleColor3}"
+                                       FontFamily="Montserrat"
+                                       FontSize="12"
+                                       VerticalAlignment="Center"/>
+
+                            <Ellipse Height="35" Width="35"
+                                     Stroke="{StaticResource color1}"
+                                     StrokeThickness="2"
+                                     Margin="10,0,10,10">
+
+                                <Ellipse.Fill>
+                                    <!-- Aqui iria un binding con "ProfilePicture" , pero como ahora no tenemos esa opcion solo pondremos cualquier imagen -->
+                                    <ImageBrush ImageSource="../Images/profile.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color8}" Cursor="Hand">
+                                <fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color4}" Cursor="Hand">
+                                <fa:IconImage Icon="Envelope" Style="{StaticResource iconButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color6}" Cursor="Hand">
+                                <fa:IconImage Icon="Bell" Style="{StaticResource iconButtonIcon}"/>
+                            </Button>
+                            
+                        </StackPanel>
+                        
+                    </Grid>
+
+                    <!-- Content section / Childs View-->
+                    <ContentControl Content="{Binding CurrentChildView}"
+                                    Grid.Row="2"
+                                    Margin="20"/>
+
+
+
                 </Grid>
                 
             </Border>

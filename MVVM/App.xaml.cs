@@ -30,7 +30,8 @@ namespace MVVM
     public partial class App : Application
     {
         protected void ApplicationStart(object sender, StartupEventArgs e)
-        {/*
+        {
+            
             var loginView = new LoginView();
             loginView.Show();
             loginView.IsVisibleChanged += (s, ev) => {  
@@ -40,11 +41,12 @@ namespace MVVM
                     mainView.Show();
                     loginView.Close();
                 }
-            };*/
+            };
 
-            //borrar lo de abajo (es temporal)
+            //Esto es para cuando necesite iniciar sin Iniciar Sesion previamente
+            /*
             var borrarEsto = new MainWindow();
-            borrarEsto.Show();
+            borrarEsto.Show();*/
         }
     }
 }

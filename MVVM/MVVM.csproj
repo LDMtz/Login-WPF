@@ -8,8 +8,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\key.png" />
+    <None Remove="Images\LogoLion.png" />
+    <None Remove="Images\profile.png" />
+    <None Remove="Images\rzr2.jpeg" />
+    <None Remove="Images\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\key.png" />
+    <Resource Include="Images\profile.png" />
+    <Resource Include="Images\rzr2.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\LogoLion.png" />
+    <Resource Include="Images\user.png" />
   </ItemGroup>
 
 </Project>

@@ -28,7 +28,7 @@
     
     <Border CornerRadius="20">
         <Border.Background>
-            <ImageBrush ImageSource="C:\Users\PC\Desktop\Codigo\WPF_INTERFACES_GRAFICAS\MVVM\Images\rzr2.jpeg"
+            <ImageBrush ImageSource="../Images/rzr2.jpeg"
                         Stretch="Fill"/>
         </Border.Background>
 
@@ -151,7 +151,7 @@
                             Grid.Row="2"
                             Orientation="Vertical"
                             Margin="0,25,0,0">
-                    <Image Source="C:\Users\PC\Desktop\Codigo\WPF_INTERFACES_GRAFICAS\MVVM\Images\LogoLion.png"
+                    <Image Source="../Images/LogoLion.png"
                            Width="100" Height="100"/>
 
                     <TextBlock Text="LM CODE"
@@ -183,7 +183,7 @@
                              FontWeight="Medium"
                              FontFamily="Montserrat"
                              Foreground="{StaticResource titleColor2}"
-                             CaretBrush="{StaticResource color6}"
+                             CaretBrush="{StaticResource color1}"
                              BorderBrush="{StaticResource txtBoxBorder1}"
                              BorderThickness="0,0,0,1"
                              Height="28"
@@ -191,7 +191,7 @@
                              Margin="8,5,0,0"
                              Padding="28,0,0,0">
                         <TextBox.Background>
-                            <ImageBrush ImageSource="C:\Users\PC\Desktop\Codigo\WPF_INTERFACES_GRAFICAS\MVVM\Images\user.png"
+                            <ImageBrush ImageSource="../Images/user.png"
                                         Stretch="None"
                                         AlignmentX="Left"/>
                         </TextBox.Background>

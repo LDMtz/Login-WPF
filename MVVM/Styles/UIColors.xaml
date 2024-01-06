@@ -23,6 +23,9 @@
     <SolidColorBrush x:Key="color3" Color="#230DFF"/>
     <SolidColorBrush x:Key="color4" Color="#00E16E"/>
     <SolidColorBrush x:Key="color5" Color="#00AD54"/>
+    <SolidColorBrush x:Key="color6" Color="#D63920"/>
+    <SolidColorBrush x:Key="color7" Color="#00F6FF"/>
+    <SolidColorBrush x:Key="color8" Color="#FF8D33"/>
 
     <!-- Menu Buttons Color Palette-->
     <SolidColorBrush x:Key="menuButtonColor1" Color="#75c2f9"/>
@@ -40,6 +43,7 @@
     <SolidColorBrush x:Key="titleColor3" Color="LightGray"/>
     <SolidColorBrush x:Key="titleColor4" Color="Aqua"/>
     <SolidColorBrush x:Key="plainTextColor1" Color="#87cefa"/>
+    <SolidColorBrush x:Key="plainTextColor2" Color="#426198"/>
     
     <!-- Panel Colors -->
     <SolidColorBrush x:Key="panelOverColor" Color="#001542"/>
